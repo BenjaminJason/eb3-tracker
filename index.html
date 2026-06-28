@@ -132,6 +132,7 @@ footer{border-top:1px solid var(--bd);background:var(--surface);padding:20px 0;m
     <button data-p="bulletin">排期追踪</button>
     <button data-p="glossary">术语词典</button>
     <button data-p="resources">官方资源</button>
+    <button data-p="stories">经验分享</button>
     <button data-p="news">资讯</button>
     <button data-p="assistant">AI 助手</button>
     <button data-p="about">关于 / 免责声明</button>
@@ -244,6 +245,18 @@ footer{border-top:1px solid var(--bd);background:var(--surface);padding:20px 0;m
     <div class="lead">直达官方信息源。任何具体问题，请以下列官方渠道为最终依据。</div>
     <div class="disc" style="margin-top:14px"><b>提醒：</b>本站不推荐任何中介或律师。如需法律帮助，请通过<b>官方/行业权威目录</b>自行查证持牌律师资质，本站不做任何具体推荐。</div>
     <div id="resList"></div>
+  </section>
+
+  <section class="page" id="stories">
+    <h1>经验分享</h1>
+    <div class="lead">了解走这条路的人，经历了什么、做了哪些准备、有什么建议。</div>
+    <div class="disc"><b>重要说明：</b>以下为<b>综合多种常见情况整理的「示例性经历」，并非特定真实个人</b>，仅帮助理解整体过程，<b>不构成法律建议、不代表任何人的实际结果</b>。每个人情况不同，请以官方与持牌律师为准。</div>
+    <div id="storyList"></div>
+    <div class="card" style="text-align:center">
+      <div style="font-weight:600;margin-bottom:6px">📮 你也走过这条路？欢迎投稿你的真实经历</div>
+      <div style="font-size:13px;color:var(--tx2);margin-bottom:10px">经审核（去除个人隐私）后，可匿名分享给后来人。真实故事最能帮到人。</div>
+      <a href="mailto:senj43223@gmail.com?subject=EB-3%20真实经历投稿" style="display:inline-block;background:var(--navy);color:#fff;padding:9px 18px;border-radius:8px;font-weight:600">投稿我的经历 ↗</a>
+    </div>
   </section>
 
   <section class="page" id="news">
@@ -518,7 +531,11 @@ function renderBulletin(){
   const rec=series.slice(-13);let td=0,cnt=0;
   for(let i=1;i<rec.length;i++){if(!isC(rec[i].fad)&&!isC(rec[i-1].fad)){td+=dayspan(rec[i].fad,rec[i-1].fad);cnt++;}}
   const avg=cnt?Math.round(td/cnt):null;
-  $('#avgSpeed').innerHTML=avg==null?'本区间含「当前(C)」状态，不适用平均速度统计。':`📈 <b>历史平均速度：</b>过去 ${cnt} 个月，本列「表A」平均每月${avg>=0?'前进':'后退'} <b>${Math.abs(avg)} 天</b>。<span style="color:var(--tx3)">（这是<b>历史平均</b>，<b>不预测未来、不针对任何个案</b>；排期随时可能停滞或倒退。）</span>`;
+  // 卡住预警：从最新月往回数，连续「未前进」的月数
+  let stag=0;
+  for(let i=series.length-1;i>0;i--){const a=series[i].fad,b=series[i-1].fad;if(!isC(a)&&!isC(b)&&new Date(a)<=new Date(b))stag++;else break;}
+  const stagHtml=stag>=2?`<div style="margin-top:8px;color:var(--danger)">⏸ <b>停滞提示：</b>本列「表A」已<b>连续 ${stag} 个月未前进</b>（持平或倒退）。这是对历史事实的描述，不预测后续。</div>`:'';
+  $('#avgSpeed').innerHTML=(avg==null?'本区间含「当前(C)」状态，不适用平均速度统计。':`📈 <b>历史平均速度：</b>过去 ${cnt} 个月，本列「表A」平均每月${avg>=0?'前进':'后退'} <b>${Math.abs(avg)} 天</b>。<span style="color:var(--tx3)">（这是<b>历史平均</b>，<b>不预测未来、不针对任何个案</b>；排期随时可能停滞或倒退。）</span>`)+stagHtml;
 
   // #1 地区对比图（当前类别下 中国/印度/其它地区 的表A）
   $('#cmpCat').textContent=CAT_LABEL[CAT];
@@ -550,6 +567,28 @@ const NEWS=[
   {date:'2026-01',t:'2026 财年上半年：EB-3 中国大陆 表B 稳定在 2022年1月1日',d:'1月至今，递交日（表B）持续保持 2022年1月1日；表A 自 2021年5月起逐步前进。具体见「排期追踪」页。来源：美国国务院 Visa Bulletin。'},
 ];
 $('#newsList').innerHTML=NEWS.map(n=>`<li><div class="date">${n.date}</div><div class="nt">${n.t}</div><div class="nd">${n.d}</div></li>`).join('');
+
+// ===== 经验分享（示例性综合经历，非真实个人）=====
+const STORIES=[
+  {tag:'示例 · EB-3 非技术（Other Workers）',who:'国内普通服务业从业者，30+岁，已婚有娃，学历不高、英语一般',
+   why:'看重的是身份本身和孩子的教育/成长环境。EB-3 非技术对学历、语言没有硬性高要求，是相对"门槛友好"的职业移民路径，于是选择它。',
+   prep:['尽早办好：学历/经历材料、护照','按要求做体检、无吸毒检测、无犯罪公证','做好资金与时间规划（排期可能数年）','保持与办理方联系畅通，信息有变及时同步'],
+   stages:[['劳工卡阶段','配合准备个人材料；体检/无犯罪等按模板格式来（日期月/日/年、医生盖章）。建议：材料一次性备齐，少来回。'],['排期等待','最磨人的阶段。非技术排期往往更长，要有耐心，定期看 Visa Bulletin。建议：利用等待期把后续民事文件备好。'],['I-485 / 领事','排期到了尽快递交；体检别太早做（有有效期）。建议：一处不齐就可能补件，材料务必齐整。']],
+   after:'落地后通常要面对找工作、租房、孩子入学、适应语言与文化等现实问题。心理上要有"从头开始"的准备；好处是身份带来的长期稳定与选择权。'},
+  {tag:'示例 · 家庭决策视角',who:'有一定积蓄的家庭，看重"性价比"与确定性',
+   why:'比较了多种移民方式后，认为这条路投入相对可控、流程清晰，作为家庭长期规划的一部分。',
+   prep:['把全流程时间线和费用搞清楚，量力而行','明确每个阶段谁负责（雇主/律师/本人）','对"排期不可控、可能倒退"有心理预期'],
+   stages:[['前期','把"为什么走这条路"想清楚，避免中途动摇。'],['排期','关注官方数据而非小道消息；本站趋势图可帮助理解大方向（但不预测个案）。'],['登陆','提前研究落地城市的就业、教育、医疗。']],
+   after:'身份只是起点，落地后的生活质量取决于就业与适应。建议提前规划、降低预期落差。'},
+];
+$('#storyList').innerHTML=STORIES.map(s=>`<div class="card">
+  <div style="display:inline-block;font-size:11px;background:var(--surface2);color:var(--navy2);border-radius:12px;padding:2px 10px;margin-bottom:8px">${s.tag}</div>
+  <div style="margin-bottom:8px"><b>👤 身份背景：</b>${s.who}</div>
+  <div style="margin-bottom:8px"><b>🤔 为什么选这个项目：</b>${s.why}</div>
+  <div style="margin-bottom:8px"><b>🧰 做了哪些准备：</b><ul style="margin:4px 0 0 18px">${s.prep.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+  <div style="margin-bottom:8px"><b>🪜 各阶段经历与建议：</b>${s.stages.map(x=>`<div style="margin:5px 0 0 4px"><b>${x[0]}</b> — ${x[1]}</div>`).join('')}</div>
+  <div><b>🏡 登陆后的生活：</b>${s.after}</div>
+</div>`).join('');
 
 // ===== 导航 =====
 const nav=$('#nav');
