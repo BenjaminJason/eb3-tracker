@@ -262,7 +262,7 @@ footer{border-top:1px solid var(--bd);background:var(--surface);padding:20px 0;m
   <section class="page" id="news">
     <h1>资讯</h1>
     <div class="lead">与 EB-3、排期、移民政策相关的更新，按时间排序。</div>
-    <div class="disc" style="margin-top:14px"><b>说明：</b>资讯基于<b>美国国务院 Visa Bulletin 官方数据整理</b>，仅作信息陈述、不含个案判断。请以<a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener">官方原文</a>核实，本站不对时效性负责。</div>
+    <div class="disc" style="margin-top:14px"><b>说明：</b>以下资讯<b>由官方排期数据自动生成</b>，每月数据更新后自动刷新，仅作事实陈述、不含个案判断。请以<a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener">官方原文</a>核实，本站不对时效性负责。</div>
     <ul class="news" id="newsList"></ul>
   </section>
 
@@ -560,13 +560,31 @@ $('#pdCheck').onclick=()=>{
   <div class="disc" style="margin-top:10px">⚠️ 这只是把你的日期和<b>所选类别/地区的本月官方数字</b>做机械对照。当月实际能否递交，<b>还要看 USCIS 公告该月使用表A还是表B</b>。本工具<b>不预测你将来何时排到</b>，也不构成法律建议。</div>`;
 };
 
-// ===== 资讯（基于官方 Visa Bulletin 数据整理）=====
-const NEWS=[
-  {date:'2026-06',t:'2026年6月：EB-3 中国大陆 表A 前进至 2021年8月1日',d:'最终裁定日（表A）由上月的 2021年6月15日 前进约 47 天至 2021年8月1日；递交日（表B）维持 2022年1月1日 不变。来源：美国国务院 Visa Bulletin。'},
-  {date:'2026-04',t:'2026年4月：EB-3 中国大陆 表A 前进至 2021年6月15日',d:'表A 由年初至3月持平的 2021年5月1日 前进至 2021年6月15日；表B 维持 2022年1月1日。来源：美国国务院 Visa Bulletin。'},
-  {date:'2026-01',t:'2026 财年上半年：EB-3 中国大陆 表B 稳定在 2022年1月1日',d:'1月至今，递交日（表B）持续保持 2022年1月1日；表A 自 2021年5月起逐步前进。具体见「排期追踪」页。来源：美国国务院 Visa Bulletin。'},
-];
-$('#newsList').innerHTML=NEWS.map(n=>`<li><div class="date">${n.date}</div><div class="nt">${n.t}</div><div class="nd">${n.d}</div></li>`).join('');
+// ===== 资讯（由官方排期数据自动生成，数据一更新资讯就刷新）=====
+function moveText(c,p){
+  if(p==null)return '—';
+  if(isC(c)&&isC(p))return '持平（当前）';
+  if(isC(c))return '变为「当前(C)」';
+  if(isC(p))return '退出「当前」';
+  const d=dayspan(c,p);
+  return d>0?`前进 ${d} 天`:d<0?`后退 ${d*-1} 天`:'持平';
+}
+function genNews(){
+  const out=[],latest=VB_META.latest,my=latest.replace('-','年')+'月';
+  const catN={EB3:'EB-3 主类',EB3_OW:'EB-3 非技术',EB2:'EB-2'};
+  ['EB3','EB3_OW','EB2'].forEach(cat=>{
+    ['China','India'].forEach(co=>{
+      const s=VB_DATA[cat][co],cur=s[s.length-1],prev=s[s.length-2];
+      const coN=co==='China'?'中国大陆':'印度';
+      out.push({date:latest,t:`${my} · ${catN[cat]}（${coN}）表A ${moveText(cur.fad,prev.fad)}`,
+        d:`表A ${fmtD(cur.fad)}（较上月${moveText(cur.fad,prev.fad)}）；表B ${fmtD(cur.dff)}（${moveText(cur.dff,prev.dff)}）。来源：美国国务院 Visa Bulletin。`});
+    });
+    const r=VB_DATA[cat].ROW,rc=r[r.length-1],rp=r[r.length-2];
+    if(isC(rc.fad)&&!isC(rp.fad))out.push({date:latest,t:`${my} · ${catN[cat]}（其它地区）表A 变为「当前(C)」`,d:`本月起其它地区(ROW)该类别无需排期，所有优先日期均可办理。来源：官方 Visa Bulletin。`});
+  });
+  return out;
+}
+$('#newsList').innerHTML=genNews().map(n=>`<li><div class="date">${n.date}</div><div class="nt">${n.t}</div><div class="nd">${n.d}</div></li>`).join('');
 
 // ===== 经验分享（示例性综合经历，非真实个人）=====
 const STORIES=[
