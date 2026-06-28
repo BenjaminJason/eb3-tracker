@@ -1,0 +1,11 @@
+{
+  "name": "EB-3 移民信息追踪",
+  "short_name": "EB-3 追踪",
+  "description": "EB-3 流程与排期信息科普（非官方）",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1d3a6e",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

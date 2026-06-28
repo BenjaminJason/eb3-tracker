@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EB-3 移民信息追踪 · 流程与排期科普</title>
+<meta name="description" content="EB-3 / EB-2 职业移民信息科普：办理流程、材料注意事项、美国国务院 Visa Bulletin 排期数据与趋势（中国/印度/其它地区）。仅信息科普，不构成法律建议。">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="EB-3 移民信息追踪 · 流程与排期科普">
+<meta property="og:description" content="职业移民流程、材料注意事项与官方排期数据趋势。仅信息科普，不构成法律建议，不推荐任何中介或律师。">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1d3a6e">
+<meta name="apple-mobile-web-app-title" content="EB-3 追踪">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>
+:root{
+  --bg:#ffffff;--surface:#f6f8fb;--surface2:#eef2f7;
+  --tx:#1a2336;--tx2:#51607a;--tx3:#8794a8;
+  --navy:#1d3a6e;--navy2:#2c5594;--accent:#2c5594;
+  --bd:#e2e7ef;--bd2:#cfd8e6;
+  --ok:#1d7a52;--okbg:#e7f4ee;--warn:#9a6700;--warnbg:#fbf3e0;--danger:#a8331f;--dangerbg:#fbeae6;
+  --card:#ffffff;
+}
+html[data-theme="dark"]{
+  --bg:#13171d;--surface:#1a2029;--surface2:#222a35;--card:#1a2029;
+  --tx:#e9edf3;--tx2:#a9b4c4;--tx3:#74808f;
+  --navy:#8ab0e6;--navy2:#a6c6f2;--accent:#a6c6f2;
+  --bd:#2a323d;--bd2:#3a4350;
+  --ok:#5ec48f;--okbg:#16302a;--warn:#e0b35a;--warnbg:#2e2614;--danger:#f0857a;--dangerbg:#33201d;
+}
+html[data-theme="dark"] .disc{color:#e8d9b0;border-color:#4a3d1c}
+html[data-theme="dark"] .disc b{color:#f3e6c4}
+html[data-theme="dark"] .read{color:#bfe6d2;border-color:#2a5a44}
+html[data-theme="dark"] .read b{color:#dcf3e7}
+html[data-theme="dark"] .sd-note{color:#e8d9b0;border-color:#4a3d1c}
+html[data-theme="dark"] .msg.sys{color:#f0a89c}
+.themebtn{background:none;border:none;font-size:18px;cursor:pointer;padding:4px 8px;line-height:1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--tx);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--navy2);text-decoration:none}
+.wrap{max-width:880px;margin:0 auto;padding:0 18px}
+header{border-bottom:1px solid var(--bd);background:var(--card);position:sticky;top:0;z-index:10}
+.hbar{display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:16px;color:var(--navy)}
+.logo .mark{width:26px;height:26px;border-radius:6px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
+nav{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end}
+nav button{background:none;border:none;font-size:14px;color:var(--tx2);padding:7px 12px;border-radius:7px;cursor:pointer;font-family:inherit}
+nav button.on{color:var(--navy);background:var(--surface2);font-weight:600}
+nav button:hover{background:var(--surface)}
+.menu{display:none;background:none;border:none;font-size:22px;color:var(--tx2);cursor:pointer}
+main{padding:26px 0 40px;min-height:60vh}
+.page{display:none}.page.on{display:block;animation:fade .25s}
+@keyframes fade{from{opacity:.5}to{opacity:1}}
+h1{font-size:26px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+h2{font-size:19px;font-weight:600;margin:26px 0 12px}
+.lead{font-size:15px;color:var(--tx2);margin-top:8px}
+.disc{background:var(--warnbg);border:1px solid #efdca8;border-left:4px solid var(--warn);border-radius:8px;padding:13px 16px;font-size:13.5px;color:#5c4708;line-height:1.65;margin:18px 0}
+.disc b{color:#3d2f05}
+.timeline{margin:22px 0}
+.stage{display:flex;gap:14px;padding-bottom:4px}
+.srail{display:flex;flex-direction:column;align-items:center}
+.snum{width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0}
+.sline{width:2px;flex:1;background:var(--bd2);margin:4px 0}
+.stage:last-child .sline{display:none}
+.sbody{padding-bottom:22px}
+.stitle{font-size:16px;font-weight:600}
+.sdesc{font-size:14px;color:var(--tx2);margin-top:3px}
+.stag{display:inline-block;font-size:11px;color:var(--navy2);background:var(--surface2);border-radius:12px;padding:1px 9px;margin-top:6px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:18px;margin:14px 0}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--bd)}
+.tbl th{font-size:12px;color:var(--tx3);font-weight:600;text-transform:uppercase;letter-spacing:.03em;background:var(--surface)}
+.tbl td{font-variant-numeric:tabular-nums}
+.move-up{color:var(--ok);font-weight:600}.move-dn{color:var(--danger);font-weight:600}.move-no{color:var(--tx3)}
+.placeholder{display:inline-block;font-size:11px;background:var(--surface2);color:var(--tx2);border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:middle}
+.read{background:var(--okbg);border:1px solid #c4e6d4;border-radius:8px;padding:13px 16px;font-size:14px;color:#13533a;line-height:1.7;margin-top:12px}
+.read b{color:#0c3a28}
+.cw{position:relative;height:230px;margin-top:10px}
+.news{list-style:none}
+.news li{border-bottom:1px solid var(--bd);padding:14px 0}
+.news .date{font-size:12px;color:var(--tx3);font-variant-numeric:tabular-nums}
+.news .nt{font-size:15px;font-weight:600;margin-top:2px}
+.news .nd{font-size:13.5px;color:var(--tx2);margin-top:3px}
+.about p{font-size:14.5px;color:var(--tx2);margin-bottom:12px}
+.about .big-disc{background:var(--surface);border:1px solid var(--bd);border-radius:10px;padding:18px;font-size:14.5px;line-height:1.8}
+.about .big-disc b{color:var(--tx)}
+.no-list{font-size:14px;color:var(--tx2);margin:6px 0 0 4px;line-height:1.9}
+footer{border-top:1px solid var(--bd);background:var(--surface);padding:20px 0;margin-top:20px}
+.foot-disc{font-size:12.5px;color:var(--tx2);line-height:1.7}
+.foot-disc b{color:var(--tx)}
+.foot-meta{font-size:12px;color:var(--tx3);margin-top:10px}
+.stage-d{margin-top:10px;border:1px solid var(--bd);border-radius:8px;background:var(--surface)}
+.stage-d>summary{padding:9px 13px;cursor:pointer;font-size:13px;font-weight:600;color:var(--navy2);list-style:none}
+.stage-d>summary::-webkit-details-marker{display:none}
+.stage-d[open]>summary{border-bottom:1px solid var(--bd)}
+.sd-body{padding:12px 14px}
+.sd-row{margin-bottom:13px}
+.sd-row:last-child{margin-bottom:0}
+.sd-k{font-size:12px;font-weight:700;color:var(--navy);text-transform:none;display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.sd-v{font-size:13.5px;color:var(--tx2);line-height:1.7}
+.sd-v ul{margin:2px 0 0 18px}
+.sd-v li{margin-bottom:3px}
+.sd-dur{display:inline-block;background:var(--surface2);border:1px solid var(--bd);border-radius:6px;padding:2px 9px;font-size:13px;color:var(--tx);font-weight:600}
+.sd-note{font-size:12.5px;color:#5c4708;background:var(--warnbg);border:1px solid #efdca8;border-radius:6px;padding:8px 11px;line-height:1.6}
+.msg{padding:10px 13px;border-radius:10px;margin-bottom:9px;font-size:14px;line-height:1.7;max-width:92%}
+.msg.u{background:var(--navy);color:#fff;margin-left:auto;border-bottom-right-radius:3px}
+.msg.a{background:var(--surface2);color:var(--tx);border-bottom-left-radius:3px;white-space:pre-wrap}
+.msg.sys{background:var(--dangerbg);color:#7a2415;font-size:13px}
+.chip{font-size:12.5px;padding:5px 11px;border-radius:16px;background:var(--surface2);color:var(--navy2);cursor:pointer;border:1px solid var(--bd)}
+.chip:hover{background:var(--bd)}
+@media(max-width:620px){
+  nav{position:absolute;top:58px;right:0;left:0;flex-direction:column;background:var(--card);border-bottom:1px solid var(--bd);padding:8px;display:none}
+  nav.open{display:flex}
+  nav button{text-align:left}
+  .menu{display:block}
+  h1{font-size:22px}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap hbar">
+  <div class="logo"><span class="mark">EB</span>EB-3 信息追踪</div>
+  <div style="display:flex;align-items:center;gap:4px">
+    <button class="themebtn" id="themeBtn" aria-label="切换深浅色" title="深 / 浅色">🌙</button>
+    <button class="menu" id="menuBtn">☰</button>
+  </div>
+  <nav id="nav">
+    <button data-p="home" class="on">首页</button>
+    <button data-p="bulletin">排期追踪</button>
+    <button data-p="glossary">术语词典</button>
+    <button data-p="resources">官方资源</button>
+    <button data-p="news">资讯</button>
+    <button data-p="assistant">AI 助手</button>
+    <button data-p="about">关于 / 免责声明</button>
+  </nav>
+</div></header>
+
+<main class="wrap">
+
+  <section class="page on" id="home">
+    <h1>EB-3 职业移民 · 流程与排期科普</h1>
+    <div class="lead">用清晰、客观的方式，帮你理解 EB-3 的办理流程和官方排期数据。仅作信息科普。</div>
+
+    <div class="disc">
+      <b>重要声明：</b>本网站<b>仅提供信息科普，不构成法律建议，不提供个案咨询，不推荐任何中介或律师</b>。所有数据以美国国务院（U.S. Department of State）及 USCIS 官方公布为准，请以官方信息为最终依据。
+    </div>
+
+    <h2>EB-3 办理流程（四个阶段）</h2>
+    <div style="font-size:13px;color:var(--tx2);background:var(--surface);border:1px solid var(--bd);border-radius:8px;padding:11px 14px;margin-bottom:14px">
+      点击每个阶段可展开「怎么准备 · 需要什么材料 · 时间窗口 · 大概耗时 · 谁负责」。<b>所有耗时均为近年一般参考区间，会随政策与审理量大幅波动</b>，请以官方处理时间为准：
+      <a href="https://egov.uscis.gov/processing-times/" target="_blank" rel="noopener">USCIS 处理时间 ↗</a> ·
+      <a href="https://flag.dol.gov/processingtimes" target="_blank" rel="noopener">DOL/PERM 处理时间 ↗</a>
+    </div>
+    <div class="timeline" id="timeline"></div>
+
+    <div class="card">
+      <b>提示：</b>每个人的情况不同，实际时间受劳工市场、移民局审理速度、排期等多种因素影响。本站只解释<b>通用流程</b>与<b>官方公布的排期事实</b>，不对任何个案做时间预测。
+    </div>
+
+    <h2>核心概念（通用科普）</h2>
+    <div id="concepts"></div>
+
+    <h2>EB-3 是什么</h2>
+    <p style="font-size:14.5px;color:var(--tx2)">EB-3 是美国职业移民第三优先类别（Employment-Based Third Preference），面向：<b>技术工人</b>（需 2 年以上培训或经验）、<b>专业人员</b>（通常需本科学位）、<b>其他工人</b>（非技术、培训少于 2 年的全职岗位）。三类共享一个年度名额池，因此需要排期。</p>
+
+    <h2>常见问题</h2>
+    <div id="faq"></div>
+
+    <h2>EB-2 与 EB-3 对比</h2>
+    <div style="overflow-x:auto"><table class="tbl" id="cmpTbl"></table></div>
+    <div style="font-size:12px;color:var(--tx3);margin-top:6px">通用对比，仅供理解差异。是否、能否在两者间转换涉及个人情况，请咨询持牌律师。</div>
+
+    <h2>材料准备清单（可勾选，自动保存）</h2>
+    <div style="font-size:13px;color:var(--tx2);margin-bottom:10px">帮你<b>整理</b>各阶段一般需要的材料，勾选状态存在你本机浏览器。<b>这只是清单工具，不评估你的个案、不代表你一定需要或不需要某项。</b></div>
+    <div id="checklist"></div>
+
+    <h2>材料填写 · 通用注意事项</h2>
+    <div class="disc"><b>说明：</b>以下为对一般性流程材料的<b>科普整理</b>，<b>具体所需材料、格式、签署与时间要求因案而异，请以你的律师/代理机构和官方表格说明为最终依据</b>。本站不代表任何机构、不针对任何个案。</div>
+    <div id="notes"></div>
+
+    <div class="disc">
+      <b>再次提醒：</b>以上均为通用信息科普。任何与你个人情况相关的判断，请咨询<b>持牌移民律师</b>，并以 USCIS 和国务院官方信息为准。
+    </div>
+  </section>
+
+  <section class="page" id="bulletin">
+    <h1>排期追踪 · Visa Bulletin</h1>
+    <div class="lead">展示美国国务院每月发布的职业移民排期数据与变化趋势。可切换类别与出生国/地区。</div>
+    <div class="disc" style="margin-top:14px"><b>数据说明：</b>下方为<b>美国国务院 Visa Bulletin 数据</b>（2025年7月–2026年6月，自动整理）。本站为非官方信息整理，<b>仍建议你对照<a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener">官方原文</a>核对</b>，并以官方为最终依据。</div>
+
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin:16px 0 6px">
+      <div><label style="font-size:12px;color:var(--tx3);display:block;margin-bottom:3px">类别</label>
+        <select id="selCat" aria-label="选择移民类别" style="padding:8px 11px;border:1px solid var(--bd2);border-radius:8px;font-size:14px;font-family:inherit"><option value="EB3">EB-3 第三优先</option><option value="EB2">EB-2 第二优先</option></select></div>
+      <div><label style="font-size:12px;color:var(--tx3);display:block;margin-bottom:3px">出生国 / 地区</label>
+        <select id="selCountry" aria-label="选择出生国或地区" style="padding:8px 11px;border:1px solid var(--bd2);border-radius:8px;font-size:14px;font-family:inherit"><option value="China">中国大陆</option><option value="India">印度</option><option value="ROW">其它地区</option></select></div>
+    </div>
+    <h2 id="bullHeading" style="margin-top:8px">—</h2>
+    <div style="font-size:12.5px;color:var(--tx3);margin-bottom:8px">
+      最新数据 <b id="updatedAt">—</b> · 核对于 <b id="verifiedAt">—</b> ·
+      来源：<a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener">官方原文 ↗</a>
+    </div>
+    <div id="lowConfNote" class="disc" style="display:none;margin-top:0">⚠️ 当前所选「印度」列为<b>自动提取，可靠性较低</b>，请务必逐项对照官方原文，勿直接据此决策。</div>
+    <div style="font-size:12px;color:var(--tx3);margin:-2px 0 4px"><a href="mailto:senj43223@gmail.com?subject=EB-3%20数据纠错反馈">发现某月数字有误？点此反馈 ↗</a></div>
+    <div style="overflow-x:auto">
+      <table class="tbl" id="bulletinTbl"></table>
+    </div>
+
+    <h2>优先日期对照器</h2>
+    <div style="font-size:13.5px;color:var(--tx2);margin-bottom:8px">输入你的优先日期，对照<b>本月官方公布的排期</b>，看你是否到达可递交/可批准的门槛。<b>这只是事实对照，不预测你将来何时排到。</b></div>
+    <div class="card" style="padding:16px">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <label style="font-size:13px;color:var(--tx2)">我的优先日期：</label>
+        <input type="date" id="pdInput" style="padding:8px 10px;border:1px solid var(--bd2);border-radius:8px;font-size:14px;font-family:inherit">
+        <button id="pdCheck" style="background:var(--navy);color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer">对照一下</button>
+      </div>
+      <div id="pdResult" style="margin-top:12px;display:none"></div>
+    </div>
+
+    <h2>本月解读</h2>
+    <div class="read" id="reading"></div>
+
+    <h2>排期走势（Final Action Date）</h2>
+    <div class="cw"><canvas id="trend" role="img" aria-label="EB-3 中国大陆排期走势"></canvas></div>
+    <div style="font-size:12px;color:var(--tx3);margin-top:8px">纵轴为优先日期（越往上＝排期越新＝越接近当前）。<span style="color:var(--danger)">红点</span>＝当月表A较上月「后退」。数据来源：美国国务院 Visa Bulletin。</div>
+  </section>
+
+  <section class="page" id="glossary">
+    <h1>术语词典</h1>
+    <div class="lead">EB-3 流程里常见的缩写和术语，用大白话解释。</div>
+    <input id="glossSearch" placeholder="🔍 搜索术语，如 PERM / 优先日期 / RFE" style="width:100%;padding:10px 13px;border:1px solid var(--bd2);border-radius:8px;font-size:14px;margin:16px 0;font-family:inherit">
+    <div id="glossList"></div>
+  </section>
+
+  <section class="page" id="resources">
+    <h1>官方资源导航</h1>
+    <div class="lead">直达官方信息源。任何具体问题，请以下列官方渠道为最终依据。</div>
+    <div class="disc" style="margin-top:14px"><b>提醒：</b>本站不推荐任何中介或律师。如需法律帮助，请通过<b>官方/行业权威目录</b>自行查证持牌律师资质，本站不做任何具体推荐。</div>
+    <div id="resList"></div>
+  </section>
+
+  <section class="page" id="news">
+    <h1>资讯</h1>
+    <div class="lead">与 EB-3、排期、移民政策相关的更新，按时间排序。</div>
+    <div class="disc" style="margin-top:14px"><b>说明：</b>资讯基于<b>美国国务院 Visa Bulletin 官方数据整理</b>，仅作信息陈述、不含个案判断。请以<a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener">官方原文</a>核实，本站不对时效性负责。</div>
+    <ul class="news" id="newsList"></ul>
+  </section>
+
+  <section class="page" id="assistant">
+    <h1>AI 信息助手</h1>
+    <div class="lead">解释 EB-3 的通用概念和官方政策，并引导你查询官方信息源。</div>
+    <div class="disc" style="margin-top:14px"><b>使用须知：</b>本助手<b>只解释通用信息</b>，<b>不对任何个人情况做判断、不预测个案、不推荐任何中介或律师</b>。涉及个案请咨询持牌移民律师。</div>
+
+    <div class="card" id="chatBox">
+      <div id="chatLog" style="min-height:60px"></div>
+      <div class="chips" id="chatChips" style="display:flex;gap:7px;flex-wrap:wrap;margin:10px 0"></div>
+      <div style="display:flex;gap:8px;margin-top:6px">
+        <input id="chatIn" placeholder="比如：什么是优先日期？" style="flex:1;padding:10px 12px;border:1px solid var(--bd2);border-radius:8px;font-size:14px;font-family:inherit">
+        <button id="chatSend" style="background:var(--navy);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:600;cursor:pointer">发送</button>
+      </div>
+      <details style="margin-top:12px"><summary style="font-size:12.5px;color:var(--tx3);cursor:pointer">⚙️ 设置 AI（需免费 Gemini Key）</summary>
+        <input id="gkey" placeholder="Gemini API Key（aistudio.google.com 免费获取）" style="width:100%;padding:9px 12px;border:1px solid var(--bd2);border-radius:8px;font-size:13px;margin-top:8px;font-family:inherit">
+        <div style="font-size:11.5px;color:var(--tx3);margin-top:6px">Key 只存在你本机浏览器，不上传。</div>
+      </details>
+    </div>
+  </section>
+
+  <section class="page about" id="about">
+    <h1>关于本站 / 免责声明</h1>
+    <div class="big-disc" style="margin-top:14px">
+      <b>本网站仅提供信息科普，不构成法律建议，不提供个案咨询，不推荐任何中介或律师。</b><br><br>
+      本站旨在用通俗的方式，帮助有兴趣了解 EB-3 职业移民的人理解其<b>通用流程</b>和<b>美国国务院官方公布的排期数据</b>。
+    </div>
+
+    <h2>本站会做什么</h2>
+    <p>· 用时间线解释 EB-3 的通用办理阶段<br>· 整理并展示官方 Visa Bulletin 的排期数据与变化<br>· 用通俗的话说明官方数据"意味着什么事实"（如"某优先日期前可递交"）</p>
+
+    <h2>本站不会做什么</h2>
+    <div class="no-list">
+      ✕ 不做"个案评估"（不会判断"你是否适合 EB-3"或"你的案子何时排到"）<br>
+      ✕ 不提供任何形式的个案法律咨询<br>
+      ✕ 不推荐、不引流任何中介、律所或律师<br>
+      ✕ 不对任何个人的移民决定负责
+    </div>
+
+    <h2>数据来源</h2>
+    <p>排期数据来自 <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener">美国国务院 Visa Bulletin</a>；流程信息参考 <a href="https://www.uscis.gov" target="_blank" rel="noopener">USCIS</a> 官方说明。请始终以官方为最终依据。</p>
+
+    <h2>数据更新与核对</h2>
+    <p>排期数据每月由人工从官方 Visa Bulletin 录入并核对。<b>最新数据：<span id="aboutLatest">—</span> · 核对日期：<span id="aboutVerified">—</span></b>。其中「印度」列为自动整理、可靠性较低，请以官方为准。</p>
+    <div id="changelog"></div>
+
+    <h2>重要提醒</h2>
+    <p>移民政策与排期会变动，且每个人情况不同。任何具体决定，请咨询<b>有执照的移民律师</b>并以官方信息为准。本站与任何中介、律所无利益关系。</p>
+  </section>
+
+</main>
+
+<footer><div class="wrap">
+  <div class="foot-disc"><b>免责声明：</b>本网站仅提供信息科普，不构成法律建议，不提供个案咨询，不推荐任何中介或律师。所有数据请以美国国务院及 USCIS 官方公布为准。</div>
+  <div class="foot-meta">EB-3 信息追踪 · 信息科普用途 · 非官方网站 · <a href="mailto:senj43223@gmail.com?subject=EB-3%20数据纠错反馈">发现数据有误？反馈 ↗</a></div>
+</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="data.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+
+const STAGES=[
+  {t:'PERM 劳工证',tag:'雇主 + 劳工部 (DOL)',
+   summary:'雇主向美国劳工部证明：在本地按现行工资招不到合格的美国工人来做这个岗位。本阶段递交日 = 你的「优先日期」。',
+   do:['① <b>现行工资认定 (PWD)</b>：雇主向劳工部申请该岗位的法定最低工资标准。','② <b>招聘测试 (Recruitment)</b>：在规定窗口内做强制招聘——专业岗通常需：州劳动力机构 job order（挂满 30 天）、2 次周日报纸广告、3 种额外招聘方式，以及公司内部张贴《Notice of Filing》（10 个工作日）。','③ <b>递交 ETA-9089 (PERM)</b>：招聘结束并满 30 天等待期后，向劳工部递交申请，等待审理（可能被抽查 audit）。'],
+   docs:['岗位职责说明、最低学历/经验要求','现行工资 (PWD) 结果','全部招聘证据（广告、报纸版面、收到的申请人及不录用理由）','你的简历、学历证明、过往工作经验信（证明你满足岗位要求）'],
+   prep:'申请人侧应<b>尽早</b>准备：学历学位证明、历年工作经验信（需前雇主出具、写明职责与时间）。这些往往最耗时，建议在雇主启动 PWD 时就开始备。',
+   dur:'近年常见整段约  <b>10–16 个月</b>（PWD ~数月 + 招聘约 2–3 个月 + DOL 审理数月；被 audit 会更久）。波动很大。',
+   who:'雇主主导（+ 移民律师），申请人配合提供个人材料。',
+   note:'关键：PERM 向劳工部递交的那一天，就是你的「优先日期 Priority Date」——决定你在排期里的位置。'},
+
+  {t:'I-140 移民申请',tag:'雇主 + 移民局 (USCIS)',
+   summary:'雇主向移民局递交 I-140，证明岗位与你符合 EB-3 条件、且雇主有能力支付承诺的工资。批准即确认你的移民资格。',
+   do:['雇主基于已批准的 PERM，向 USCIS 递交 I-140。','可选择付费的「加急处理 (Premium Processing)」，承诺 15 个工作日内给结果（批准/补件/拒绝）。'],
+   docs:['已批准的 PERM（ETA-9089）正本','雇主的支付能力证明（公司税表、审计报告或年报等）','你满足 PERM 要求的证明（学历、经验信等）','护照信息页'],
+   prep:'PERM 一批准就应尽快递交。同步确认雇主财务材料齐全（小公司常卡在「支付能力」证明上）。',
+   dur:'普通审理近年常见 <b>数月不等</b>；用加急通常 <b>15 个工作日</b>内有初步结果。',
+   who:'雇主（+ 律师）。',
+   note:'时限：PERM 批准后有效期 180 天，必须在此期间递交 I-140，否则 PERM 作废需重来。'},
+
+  {t:'排期等待',tag:'国务院 Visa Bulletin',
+   summary:'EB-3 每年绿卡名额有限，需排队。等每月《Visa Bulletin》公布的排期「前进」到你的优先日期，才能进入下一步。',
+   do:['每月查看 Visa Bulletin，对比你的优先日期与当月公布的「表A / 表B」日期（见本站「排期追踪」页）。','留意 USCIS 每月公告该月「递交 I-485」用表A还是表B。'],
+   docs:['这段时间可<b>提前准备</b>下一阶段材料：出生公证、（如适用）结婚证、无犯罪记录等。','注意：体检（I-693）有有效期，不要太早做。'],
+   prep:'排期不可控、可能前进也可能后退。利用等待期把民事文件（出生、婚姻、无犯罪）准备好，轮到时才不手忙脚乱。',
+   dur:'<b>高度不确定</b>，中国大陆 EB-3 历史上可能等数年。以每月官方公告为准，<b>本站不预测任何个案何时排到</b>。',
+   who:'申请人关注公告；无需主动操作，等待名额。',
+   note:'排期会「后退」是正常现象（名额用量变化所致），不必恐慌，以官方公告为准。'},
+
+  {t:'I-485 调整身份 / 领事程序',tag:'移民局 / 领事馆 (NVC)',
+   summary:'优先日期排到后：人在美国境内递交 I-485 调整身份；人在境外则走领事馆移民签证程序。通过后获得绿卡。',
+   do:['<b>境内：</b>递交 I-485，可同时申请工卡 I-765、回美证 I-131；之后录指纹、可能面谈。','<b>境外：</b>通过国家签证中心 (NVC) 递交 DS-260 及民事文件，到美领馆面签。'],
+   docs:['I-693 体检表（由指定医生完成）','出生证明公证、护照、I-94/签证记录','I-140 批准通知','证件照、必要的civil documents（结婚/离婚证等）','境外另需：DS-260、无犯罪记录、领馆面签'],
+   prep:'排期一 current 就尽快递交。体检在递交前不久做（注意有效期）。材料一处不齐就可能补件（RFE）拖慢进度。',
+   dur:'I-485 近年常见 <b>数月至一年多</b>；领事程序看 NVC 与使馆排期。均波动较大，以官方处理时间为准。',
+   who:'申请人本人（+ 律师）。',
+   note:'拿到绿卡后通常有居住等维持身份的要求；五年（婚姻类等情况不同）后可考虑入籍，属后续话题。'},
+];
+$('#timeline').innerHTML=STAGES.map((s,i)=>`<div class="stage"><div class="srail"><div class="snum">${i+1}</div><div class="sline"></div></div><div class="sbody" style="flex:1">
+  <div class="stitle">${s.t}</div><div class="sdesc">${s.summary}</div><span class="stag">${s.tag}</span>
+  <details class="stage-d"><summary>展开：怎么准备 · 材料 · 时间窗口 · 耗时 ▾</summary><div class="sd-body">
+    <div class="sd-row"><div class="sd-k">🔧 这一步做什么</div><div class="sd-v"><ul>${s.do.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>
+    <div class="sd-row"><div class="sd-k">📄 需要准备的材料</div><div class="sd-v"><ul>${s.docs.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>
+    <div class="sd-row"><div class="sd-k">⏳ 何时准备 / 时间窗口</div><div class="sd-v">${s.prep}</div></div>
+    <div class="sd-row"><div class="sd-k">📅 大概耗时（参考）</div><div class="sd-v"><span class="sd-dur">${s.dur}</span></div></div>
+    <div class="sd-row"><div class="sd-k">👤 谁来负责</div><div class="sd-v">${s.who}</div></div>
+    <div class="sd-note">💡 ${s.note}</div>
+  </div></details>
+</div></div>`).join('');
+
+const CONCEPTS=[
+  ['优先日期（Priority Date）','你在移民排队中的"取号时间"。EB-3 通常以 PERM 劳工证递交日为准。排期表上的日期一旦"前进"到你的优先日期之后，就轮到你了。'],
+  ['排期（Visa Bulletin）','因为每年绿卡名额有限，申请人需排队。美国国务院每月发布 Visa Bulletin，公布各类别、各出生国当前排到的日期。'],
+  ['表A / 表B','表A = Final Action Dates（最终裁定日，到了才能"批准/拿绿卡"）；表B = Dates for Filing（递交日，到了可以"递交"I-485）。每月 USCIS 会公布该月用哪张表。'],
+  ['PERM 劳工证','由雇主向劳工部申请，证明本地招不到合适的人来做这个岗位。这是 EB-3（多数情况）的第一步，并确立优先日期。'],
+  ['I-140','雇主向移民局递交的移民申请，证明岗位与你符合 EB-3 条件、雇主有支付能力。'],
+  ['I-485 / 领事程序','排期到了之后，境内可递交 I-485 调整身份，境外走领事馆移民签证。完成后获得绿卡。'],
+];
+$('#concepts').innerHTML=CONCEPTS.map(c=>`<div class="card" style="padding:13px 16px;margin:9px 0"><div style="font-weight:600;font-size:15px">${c[0]}</div><div style="font-size:14px;color:var(--tx2);margin-top:3px">${c[1]}</div></div>`).join('');
+
+const FAQ=[
+  ['EB-3 和 EB-2 有什么区别？','EB-2 一般要求更高（高等学位或特殊能力），EB-3 门槛相对低。两者排期不同，名额也不同。是否、能否在两者间"降级/转换"涉及个人情况，请咨询持牌律师。'],
+  ['排期"前进"就一定轮到我了吗？','要看你的优先日期是否早于当月公布的日期，且当月 USCIS 用的是表A还是表B。本站只陈述官方公布的日期事实，不判断你个人何时排到。'],
+  ['排期会倒退吗？','会。名额用量、需求变化等都可能导致某月排期"后退"。这是正常现象，以每月官方公告为准。'],
+  ['我该找谁办？','本站不推荐任何中介或律师。你可通过官方渠道了解流程，具体办理请自行选择持牌移民律师并核实其执业资格。'],
+];
+$('#faq').innerHTML=FAQ.map(f=>`<details class="card" style="padding:0;margin:9px 0"><summary style="padding:13px 16px;cursor:pointer;font-weight:600;font-size:14.5px;list-style:none">${f[0]}</summary><div style="padding:0 16px 14px;font-size:14px;color:var(--tx2)">${f[1]}</div></details>`).join('');
+
+// ===== EB-2 vs EB-3 对比 =====
+const CMP=[
+  ['类别','EB-2 第二优先','EB-3 第三优先'],
+  ['典型要求','高等学位（硕士及以上）或本科+5年经验；或「国家利益豁免 NIW」','技术工人（≥2年经验）/ 专业人员（本科）/ 其他工人（非技术）'],
+  ['是否需要 PERM','一般需要（NIW 除外）','需要'],
+  ['排期','与 EB-3 不同，两者快慢会互相反超','与 EB-2 不同'],
+  ['名额','职业移民总名额内按比例分配','同上，「其他工人」另有子限额'],
+];
+$('#cmpTbl').innerHTML='<thead><tr>'+CMP[0].map(h=>`<th>${h}</th>`).join('')+'</tr></thead><tbody>'+CMP.slice(1).map(r=>'<tr>'+r.map((c,i)=>i===0?`<td style="font-weight:600">${c}</td>`:`<td>${c}</td>`).join('')+'</tr>').join('')+'</tbody>';
+
+// ===== 材料清单（localStorage）=====
+const CHECK=[
+  ['PERM 阶段',['个人简历','学历/学位证明（及公证/认证）','历年工作经验信（前雇主出具，写明职责与起止时间）','护照信息']],
+  ['I-140 阶段',['已批准的 PERM（ETA-9089）','满足岗位要求的学历与经验证明','（配合雇主）雇主支付能力相关材料']],
+  ['I-485 / 领事阶段',['I-693 体检表（指定医生）','出生证明公证','护照、签证/I-94 记录','I-140 批准通知','证件照','（如适用）结婚证/离婚证等民事文件','境外另需：DS-260、无犯罪记录']],
+];
+const CKEY='eb3_checklist';
+let checked=JSON.parse(localStorage.getItem(CKEY)||'{}');
+function renderCheck(){
+  $('#checklist').innerHTML=CHECK.map((g,gi)=>`<div class="card" style="padding:13px 16px;margin:9px 0"><div style="font-weight:600;font-size:14.5px;margin-bottom:6px">${g[0]}</div>${g[1].map((it,ii)=>{const k=gi+'-'+ii;return `<label style="display:block;font-size:14px;color:var(--tx2);padding:3px 0;cursor:pointer"><input type="checkbox" data-k="${k}" ${checked[k]?'checked':''}> ${it}</label>`;}).join('')}</div>`).join('');
+  $('#checklist').querySelectorAll('input').forEach(inp=>inp.onchange=()=>{checked[inp.dataset.k]=inp.checked;localStorage.setItem(CKEY,JSON.stringify(checked));});
+}
+renderCheck();
+
+// ===== 材料填写 · 通用注意事项（科普整理，剥离任何机构信息）=====
+const NOTES=[
+  ['📋 信息收集表（ETA-9089 / I-140 等）','<ul><li><b>所有问题都要回答，不要留空</b>；不适用的填 <b>N/A</b>。</li><li>信息如有更新（地址、婚姻、工作等），<b>及时通知</b>负责你案子的律师/机构。</li><li>姓名一般用<b>护照拼音</b>，与护照保持一致。</li></ul>'],
+  ['📅 日期格式','美国表格普遍用 <b>月/日/年（MM/DD/YYYY）</b>。例：1998年12月3日 → <b>12/03/1998</b>。填错格式是最常见的小错误。'],
+  ['🏥 体检 / 医生诊断书','<ul><li>通常需<b>英文版</b>，由医生<b>填写、签名并加盖医院/诊所章</b>。</li><li>诊断项一般要求<b>逐项确认</b>（如模板要求全部勾 NO）。</li><li>姓名用拼音、日期用月/日/年。</li><li>⚠️ 官方体检（I-693）有<b>有效期</b>，别太早做——具体时点以官方/律师指引为准。</li></ul>'],
+  ['👮 无犯罪记录','一般需<b>公证</b>；若你<b>有境外长期居住记录</b>，可能另需一份「无犯罪声明（Clear History Declaration）」。各地办理方式不同。'],
+  ['📝 工作协议 / 身体声明等','按要求<b>签署或完成</b>（如中英文工作协议、个人身体声明、尿检等）。签字、盖章、日期格式按模板要求来。'],
+  ['🗂️ 该阶段常见文件一览（示例）','<ul><li>ETA-9089 / I-140 信息收集表</li><li>工作协议书（中英文）</li><li>个人身体声明（Physical Condition Statement）</li><li>体检 / 医生诊断书（英文）、尿检</li><li>无犯罪记录公证</li><li>（如适用）境外无犯罪声明</li></ul><div style="font-size:12px;color:var(--tx3);margin-top:4px">不同机构、不同案子的清单会有出入，以你的律师/机构和官方要求为准。</div>'],
+];
+$('#notes').innerHTML=NOTES.map(n=>`<details class="card" style="padding:0;margin:9px 0"><summary style="padding:13px 16px;cursor:pointer;font-weight:600;font-size:14.5px;list-style:none">${n[0]}</summary><div style="padding:0 16px 14px;font-size:14px;color:var(--tx2)">${n[1]}</div></details>`).join('');
+
+// ===== 术语词典 =====
+const GLOSS=[
+  ['PERM','劳工证（Program Electronic Review Management）。雇主向劳工部证明本地招不到合格美国工人的流程，EB-3 多数情况的第一步。'],
+  ['优先日期 (Priority Date, PD)','你在排队中的「取号时间」，EB-3 通常以 PERM 递交日为准。'],
+  ['现行工资 (PWD)','Prevailing Wage Determination，岗位的法定最低工资，由劳工部认定。'],
+  ['I-140','移民申请表，由雇主递交给 USCIS，确认岗位与你符合 EB-3 且雇主有支付能力。'],
+  ['I-485','调整身份申请（Adjustment of Status, AOS），人在美国境内、排期到了时递交，获批即拿绿卡。'],
+  ['领事程序 (CP)','Consular Processing，人在境外时通过美领馆办移民签证的途径。'],
+  ['表A / Final Action Date','最终裁定日。排到这一天，案子才能「批准/拿绿卡」。'],
+  ['表B / Dates for Filing','递交日。排到这一天，符合者可「递交」I-485（具体看当月 USCIS 用哪张表）。'],
+  ['RFE','补件通知（Request for Evidence）。移民局要求补充材料，常见、不等于拒绝。'],
+  ['NVC','国家签证中心（National Visa Center），领事程序中处理材料的机构。'],
+  ['EAD','工卡（Employment Authorization Document），递交 I-485 后可一并申请。'],
+  ['AP','回美证（Advance Parole），I-485 待批期间出境再入境的许可。'],
+  ['Premium Processing','加急处理。付费后 USCIS 承诺 15 个工作日内给出结果（如 I-140）。'],
+  ['优先日期排队倒退 (Retrogression)','某月排期较上月「后退」，因名额用量等变化所致，属正常现象。'],
+];
+function renderGloss(q){
+  q=(q||'').toLowerCase();
+  const list=GLOSS.filter(g=>!q||g[0].toLowerCase().includes(q)||g[1].toLowerCase().includes(q));
+  $('#glossList').innerHTML=list.length?list.map(g=>`<div class="card" style="padding:13px 16px;margin:8px 0"><div style="font-weight:700;font-size:15px;color:var(--navy)">${g[0]}</div><div style="font-size:14px;color:var(--tx2);margin-top:3px">${g[1]}</div></div>`).join(''):'<div style="color:var(--tx3);padding:16px">没有匹配的术语。</div>';
+}
+renderGloss();
+$('#glossSearch').oninput=e=>renderGloss(e.target.value);
+
+// ===== 官方资源 =====
+const RES=[
+  ['排期与签证',[
+    ['美国国务院 Visa Bulletin（排期原文）','https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html'],
+    ['订阅 Visa Bulletin 更新通知','https://travel.state.gov/content/travel/en/News/visas-news.html'],
+  ]],
+  ['移民局 (USCIS)',[
+    ['USCIS 官网','https://www.uscis.gov'],
+    ['USCIS 案件处理时间查询','https://egov.uscis.gov/processing-times/'],
+    ['在线查案件状态','https://egov.uscis.gov/casestatus/'],
+    ['EB-3 职业移民说明','https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-third-preference-eb-3'],
+  ]],
+  ['劳工部 (DOL / PERM)',[
+    ['FLAG 系统（PERM 申请）','https://flag.dol.gov'],
+    ['PERM 处理时间','https://flag.dol.gov/processingtimes'],
+  ]],
+  ['如何自行查证持牌律师（中立目录，本站不推荐具体律师）',[
+    ['AILA 美国移民律师协会「找律师」目录','https://www.ailalawyer.com'],
+  ]],
+];
+$('#resList').innerHTML=RES.map(g=>`<div style="margin-top:18px"><div style="font-weight:600;font-size:15px;margin-bottom:8px">${g[0]}</div>${g[1].map(l=>`<a href="${l[1]}" target="_blank" rel="noopener" style="display:block;padding:11px 14px;background:var(--card);border:1px solid var(--bd);border-radius:8px;margin-bottom:7px;font-size:14px">${l[0]} ↗</a>`).join('')}</div>`).join('');
+
+// ===== 更新日志 + 核对信息 =====
+$('#aboutLatest').textContent=VB_META.latest;
+$('#aboutVerified').textContent=VB_META.verified;
+$('#changelog').innerHTML='<div style="margin-top:10px">'+VB_CHANGELOG.map(c=>`<div style="font-size:13.5px;color:var(--tx2);padding:6px 0;border-bottom:1px solid var(--bd)"><b style="color:var(--tx)">${c.date}</b> · ${c.text}</div>`).join('')+'</div>';
+
+// ===== 排期数据（EB-3 中国大陆 · 美国国务院 Visa Bulletin 真实数据）=====
+// 每月更新方法：在下方数组最后追加一行 {month,fad,dff}，并改 BULLETIN_UPDATED 为更新月份。
+const CAT_LABEL={EB3:'EB-3 第三优先',EB2:'EB-2 第二优先'};
+const CO_LABEL={China:'中国大陆',India:'印度',ROW:'其它地区'};
+const isC=d=>d==='C';
+const fmtD=d=>isC(d)?'当前无排期 (C)':(()=>{const[y,m,da]=d.split('-');return `${y}年${+m}月${da?+da+'日':''}`;})();
+const dayspan=(a,b)=>Math.round((new Date(a)-new Date(b))/864e5);
+function moveCell(c,p){
+  if(p==null)return '<span class="move-no">—</span>';
+  if(isC(c)&&isC(p))return '<span class="move-no">持平 (C)</span>';
+  if(isC(c))return '<span class="move-up">▲ 变为当前 (C)</span>';
+  if(isC(p))return '<span class="move-dn">▼ 退出当前</span>';
+  const dd=dayspan(c,p);
+  if(dd>0)return `<span class="move-up">▲ 前进 ${dd} 天</span>`;
+  if(dd<0)return `<span class="move-dn">▼ 后退 ${-dd} 天</span>`;
+  return '<span class="move-no">持平</span>';
+}
+let trendChart=null, CAT='EB3', CO='China';
+function curRow(){const s=VB_DATA[CAT][CO];return s[s.length-1];}
+
+function renderBulletin(){
+  const series=VB_DATA[CAT][CO];
+  $('#bullHeading').textContent=`${CAT_LABEL[CAT]} · ${CO_LABEL[CO]} 近 ${series.length} 月排期`;
+  $('#updatedAt').textContent=VB_META.latest;
+  $('#verifiedAt').textContent=VB_META.verified;
+  $('#lowConfNote').style.display=VB_META.lowConfidence.includes(CO)?'block':'none';
+
+  const rows=[...series].reverse();
+  $('#bulletinTbl').innerHTML=`<thead><tr><th>公告月份</th><th>排期表 A<br>Final Action</th><th>表 A 变化</th><th>排期表 B<br>Dates for Filing</th><th>表 B 变化</th></tr></thead><tbody>`+
+    rows.map((r,i)=>{const p=rows[i+1];return `<tr><td>${r.month.replace('-','年')}月</td><td>${fmtD(r.fad)}</td><td>${moveCell(r.fad,p&&p.fad)}</td><td>${fmtD(r.dff)}</td><td>${moveCell(r.dff,p&&p.dff)}</td></tr>`;}).join('')+`</tbody>`;
+
+  const cur=series[series.length-1],prev=series[series.length-2];
+  const aMean=isC(cur.fad)?'本月「最终裁定」已变为<b>当前(C)</b>，该列所有优先日期均可进入审批':`优先日期早于 <b>${fmtD(cur.fad)}</b> 的申请人，本月可能进入最终审批阶段`;
+  const bMean=isC(cur.dff)?'本月「递交日」已变为<b>当前(C)</b>，符合者均可递交':`优先日期早于 <b>${fmtD(cur.dff)}</b> 的申请人，本月可能可以<b>递交</b>材料`;
+  $('#reading').innerHTML=`<b>${cur.month.replace('-','年')}月 · ${CAT_LABEL[CAT]} · ${CO_LABEL[CO]}（官方）：</b><br>
+  • <b>排期表 A（Final Action）</b>：${fmtD(cur.fad)}，较上月 ${moveCell(cur.fad,prev.fad)}。意味着：${aMean}。<br>
+  • <b>排期表 B（Dates for Filing）</b>：${fmtD(cur.dff)}，较上月 ${moveCell(cur.dff,prev.dff)}。意味着：${bMean}（具体以 USCIS 当月公布使用哪张表为准）。<br>
+  <span style="font-size:12px;color:#5c7a68">※ 以上为对官方公布数字的机械化陈述，不针对任何个案、不预测任何人的排到时间。请以官方原文为准。</span>`;
+
+  // 趋势图
+  const toDec=d=>{if(isC(d)){const[y,m]=cur.month.split('-');return +y+(+m)/12;}const t=new Date(d);return t.getFullYear()+t.getMonth()/12+t.getDate()/365;};
+  const retro=series.map((b,i)=>i>0&&!isC(b.fad)&&!isC(series[i-1].fad)&&new Date(b.fad)<new Date(series[i-1].fad));
+  if(trendChart)trendChart.destroy();
+  trendChart=new Chart($('#trend'),{type:'line',data:{labels:series.map(b=>b.month),datasets:[
+    {label:'Final Action (表A)',data:series.map(b=>toDec(b.fad)),borderColor:'#1d3a6e',backgroundColor:'#1d3a6e15',borderWidth:2,tension:.2,fill:true,pointRadius:series.map((_,i)=>retro[i]?6:3),pointBackgroundColor:series.map((_,i)=>retro[i]?'#a8331f':'#1d3a6e')},
+    {label:'Dates for Filing (表B)',data:series.map(b=>toDec(b.dff)),borderColor:'#1d9e75',borderWidth:2,borderDash:[5,4],tension:.2,pointRadius:3}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11},color:'#51607a'}},tooltip:{callbacks:{label:c=>{const b=series[c.dataIndex];const d=c.datasetIndex===0?b.fad:b.dff;return (c.datasetIndex===0?'表A: ':'表B: ')+fmtD(d)+(c.datasetIndex===0&&retro[c.dataIndex]?'（较上月后退）':'');}}}},scales:{x:{ticks:{font:{size:10},color:'#8794a8'},grid:{display:false}},y:{ticks:{font:{size:10},color:'#8794a8',callback:v=>Math.floor(v)+'年'},grid:{color:'#eef2f7'}}}}});
+}
+$('#selCat').onchange=e=>{CAT=e.target.value;renderBulletin();};
+$('#selCountry').onchange=e=>{CO=e.target.value;renderBulletin();};
+renderBulletin();
+
+// ---- 优先日期对照器（只陈述事实，不预测）----
+$('#pdCheck').onclick=()=>{
+  const v=$('#pdInput').value;const out=$('#pdResult');out.style.display='block';
+  if(!v){out.innerHTML='<span style="color:var(--danger)">请先选择你的优先日期。</span>';return;}
+  const cur=curRow(),pd=new Date(v);
+  const ok=(d)=>isC(d)||pd<new Date(d);
+  const line=(d,label,act)=>`<div style="padding:8px 0;border-bottom:1px solid var(--bd)"><b>${label}</b>（${isC(d)?'当前 C':'截止 '+fmtD(d)}）：${ok(d)?'<span class="move-up">符合 ✓</span> '+act:'<span class="move-dn">未到</span> — 你的优先日期晚于截止日，需继续等待'}</div>`;
+  out.innerHTML=`<div style="font-size:14px;margin-bottom:4px;color:var(--tx2)">对照 ${cur.month.replace('-','年')}月 · ${CAT_LABEL[CAT]} · ${CO_LABEL[CO]}：</div>
+  ${line(cur.dff,'排期表B（递交）','→ 按本月公布，符合「递交」门槛')}
+  ${line(cur.fad,'排期表A（批准）','→ 按本月公布，符合「最终裁定」门槛')}
+  <div class="disc" style="margin-top:10px">⚠️ 这只是把你的日期和<b>所选类别/地区的本月官方数字</b>做机械对照。当月实际能否递交，<b>还要看 USCIS 公告该月使用表A还是表B</b>。本工具<b>不预测你将来何时排到</b>，也不构成法律建议。</div>`;
+};
+
+// ===== 资讯（基于官方 Visa Bulletin 数据整理）=====
+const NEWS=[
+  {date:'2026-06',t:'2026年6月：EB-3 中国大陆 表A 前进至 2021年8月1日',d:'最终裁定日（表A）由上月的 2021年6月15日 前进约 47 天至 2021年8月1日；递交日（表B）维持 2022年1月1日 不变。来源：美国国务院 Visa Bulletin。'},
+  {date:'2026-04',t:'2026年4月：EB-3 中国大陆 表A 前进至 2021年6月15日',d:'表A 由年初至3月持平的 2021年5月1日 前进至 2021年6月15日；表B 维持 2022年1月1日。来源：美国国务院 Visa Bulletin。'},
+  {date:'2026-01',t:'2026 财年上半年：EB-3 中国大陆 表B 稳定在 2022年1月1日',d:'1月至今，递交日（表B）持续保持 2022年1月1日；表A 自 2021年5月起逐步前进。具体见「排期追踪」页。来源：美国国务院 Visa Bulletin。'},
+];
+$('#newsList').innerHTML=NEWS.map(n=>`<li><div class="date">${n.date}</div><div class="nt">${n.t}</div><div class="nd">${n.d}</div></li>`).join('');
+
+// ===== 导航 =====
+const nav=$('#nav');
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id===b.dataset.p));
+  nav.classList.remove('open');window.scrollTo(0,0);
+});
+$('#menuBtn').onclick=()=>nav.classList.toggle('open');
+
+// ===== 深色 / 浅色模式 =====
+const themePref=localStorage.getItem('eb3_theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);$('#themeBtn').textContent=t==='dark'?'☀️':'🌙';localStorage.setItem('eb3_theme',t);}
+applyTheme(themePref);
+$('#themeBtn').onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
+// ===== AI 信息助手（严格边界）=====
+let GKEY=localStorage.getItem('eb3_gkey')||'';
+if(GKEY)$('#gkey').value='已保存';
+$('#gkey').onfocus=function(){if(this.value==='已保存')this.value='';};
+$('#gkey').onchange=function(){const v=this.value.trim();if(v&&v!=='已保存'){GKEY=v;localStorage.setItem('eb3_gkey',v);this.value='已保存';}};
+
+const SYS=`你是一个 EB-3 职业移民信息网站的 AI 助手。你的职责范围严格限定，必须无条件遵守：
+
+【可以做】
+- 解释 EB-3 流程中的通用概念（如：什么是 PERM、什么是优先日期、排期是什么意思、表A/表B 区别等）
+- 解释官方公开发布的政策内容
+- 引导用户去查询官方信息源（USCIS 官网 uscis.gov、美国国务院 Visa Bulletin）
+
+【绝对不能做】
+- 不能根据用户描述的个人情况，判断"你适合不适合走 EB-3""你的案子能不能成功"
+- 不能推荐任何具体的律师、中介机构、雇主
+- 不能对用户的具体材料、具体时间线做预测性判断
+
+【遇到个案判断类问题的唯一回应】
+如果用户的问题涉及对其个人情况、个人案子、个人时间线的判断或预测，你必须原样回复这句话（不要增减）：
+"这涉及到您的具体情况，我无法给出个案判断，请咨询持牌移民律师。我可以帮你解释EB-3的通用流程，但不能代替专业法律意见。"
+
+【模糊问题的处理】
+如果用户的问题模糊，优先假设他们想了解通用信息，而不是个案判断，正常解释通用知识，并在回答时主动提醒"以上是通用信息，若涉及你的具体情况需咨询持牌律师"。
+
+用简洁的中文回答，不超过 200 字。不要编造数据，具体排期请引导用户去看本站「排期追踪」页或官方 Visa Bulletin。`;
+
+const CHIPS=['什么是优先日期？','PERM 是什么？','排期表A和表B有什么区别？','在哪里查官方排期？'];
+$('#chatChips').innerHTML=CHIPS.map(c=>`<span class="chip">${c}</span>`).join('');
+document.querySelectorAll('#chatChips .chip').forEach(c=>c.onclick=()=>{$('#chatIn').value=c.textContent;sendChat();});
+
+function addMsg(cls,txt){const d=document.createElement('div');d.className='msg '+cls;d.textContent=txt;$('#chatLog').appendChild(d);d.scrollIntoView({behavior:'smooth',block:'nearest'});return d;}
+
+async function sendChat(){
+  const q=$('#chatIn').value.trim();if(!q)return;
+  $('#chatIn').value='';
+  addMsg('u',q);
+  if(!GKEY){addMsg('sys','请先在下方「⚙️ 设置 AI」里填入免费 Gemini Key。');return;}
+  const a=addMsg('a','正在思考…');
+  try{
+    const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GKEY}`,{
+      method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({system_instruction:{parts:[{text:SYS}]},contents:[{parts:[{text:q}]}],generationConfig:{temperature:0.3}})
+    });
+    const j=await r.json();
+    if(j.error)throw new Error(j.error.message);
+    a.textContent=j.candidates[0].content.parts[0].text.trim();
+  }catch(e){a.className='msg sys';a.textContent='出错：'+e.message;}
+}
+$('#chatSend').onclick=sendChat;
+$('#chatIn').addEventListener('keydown',e=>{if(e.key==='Enter')sendChat();});
+</script>
+</body>
+</html>
