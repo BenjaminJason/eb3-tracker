@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>EB-3 排期追踪 · 月度更新</title>
+  <link>https://benjaminjason.github.io/eb3-tracker/</link>
+  <description>EB-2 / EB-3（主类与非技术）排期月度更新，基于美国国务院 Visa Bulletin 自动生成。仅信息科普，不构成法律建议。</description>
+  <language>zh-cn</language>
+  <lastBuildDate>Fri, 20 Jun 2026 00:00:00 +0000</lastBuildDate>
+  <item>
+    <title>2026年6月 · EB-3 主类（中国大陆）表A 前进至 2021年8月1日</title>
+    <link>https://benjaminjason.github.io/eb3-tracker/#bulletin</link>
+    <description>表A 由上月 2021年6月15日 前进约 47 天至 2021年8月1日；表B 维持 2022年1月1日。来源：美国国务院 Visa Bulletin。</description>
+    <pubDate>Fri, 20 Jun 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="false">eb3-2026-06-china-main</guid>
+  </item>
+  <item>
+    <title>2026年6月 · EB-3 非技术（中国大陆）表A 前进至 2019年4月1日</title>
+    <link>https://benjaminjason.github.io/eb3-tracker/#bulletin</link>
+    <description>非技术（Other Workers）表A 仍显著落后于主类约 2.3 年；表B 维持 2019年10月1日。来源：美国国务院 Visa Bulletin。</description>
+    <pubDate>Fri, 20 Jun 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="false">eb3ow-2026-06-china</guid>
+  </item>
+  <item>
+    <title>2026年6月 · EB-2 / EB-3 其它地区（ROW）多数已「当前(C)」</title>
+    <link>https://benjaminjason.github.io/eb3-tracker/#bulletin</link>
+    <description>其它地区 EB-2 表A/表B 均为当前(C)；EB-3 主类表B 为当前。来源：美国国务院 Visa Bulletin。</description>
+    <pubDate>Fri, 20 Jun 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="false">row-2026-06</guid>
+  </item>
+</channel>
+</rss>

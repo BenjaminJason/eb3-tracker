@@ -231,6 +231,16 @@ footer{border-top:1px solid var(--bd);background:var(--surface);padding:20px 0;m
     <h2>地区对比（表A · <span id="cmpCat">EB-3</span>）</h2>
     <div style="font-size:12.5px;color:var(--tx3);margin-bottom:6px">同一类别下，中国 / 印度 / 其它地区的最终裁定日走势对比 —— 一眼看出谁更"堵"。</div>
     <div class="cw"><canvas id="cmpChart" role="img" aria-label="各地区排期对比"></canvas></div>
+
+    <h2>EB-3 主类 vs 非技术（中国大陆 · 表A）</h2>
+    <div style="font-size:12.5px;color:var(--tx3);margin-bottom:6px">同样是 EB-3，"非技术（Other Workers）"比"主类"落后多少？这张图一目了然。</div>
+    <div class="cw"><canvas id="gapChart" role="img" aria-label="EB-3 主类与非技术对比"></canvas></div>
+    <div id="gapNote" style="font-size:13px;color:var(--tx2);margin-top:8px"></div>
+
+    <h2>生成本月速览图</h2>
+    <div style="font-size:12.5px;color:var(--tx3);margin-bottom:8px">一键生成本月排期速览卡片，可保存后分享。</div>
+    <button id="genCard" style="background:var(--navy);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer">📸 生成速览图</button>
+    <div id="cardWrap" style="margin-top:12px"></div>
   </section>
 
   <section class="page" id="glossary">
@@ -261,7 +271,7 @@ footer{border-top:1px solid var(--bd);background:var(--surface);padding:20px 0;m
 
   <section class="page" id="news">
     <h1>资讯</h1>
-    <div class="lead">与 EB-3、排期、移民政策相关的更新，按时间排序。</div>
+    <div class="lead">与 EB-3、排期相关的更新，由排期数据自动生成。<a href="feed.xml" target="_blank" rel="noopener">📡 RSS 订阅</a></div>
     <div class="disc" style="margin-top:14px"><b>说明：</b>以下资讯<b>由官方排期数据自动生成</b>，每月数据更新后自动刷新，仅作事实陈述、不含个案判断。请以<a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener">官方原文</a>核实，本站不对时效性负责。</div>
     <ul class="news" id="newsList"></ul>
   </section>
@@ -322,6 +332,7 @@ footer{border-top:1px solid var(--bd);background:var(--surface);padding:20px 0;m
 </div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="data.js"></script>
 <script>
 const $=s=>document.querySelector(s);
@@ -543,21 +554,55 @@ function renderBulletin(){
   if(cmpChart)cmpChart.destroy();
   cmpChart=new Chart($('#cmpChart'),{type:'line',data:{labels:series.map(b=>b.month),datasets:regions.map(r=>({label:r[1],data:VB_DATA[CAT][r[0]].map(b=>toDec(b.fad)),borderColor:r[2],borderWidth:2,tension:.2,pointRadius:0}))},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11},color:'#51607a'}},tooltip:{callbacks:{label:c=>{const b=VB_DATA[CAT][regions[c.datasetIndex][0]][c.dataIndex];return regions[c.datasetIndex][1]+': '+fmtD(b.fad);}}}},scales:{x:{ticks:{font:{size:10},color:'#8794a8',maxTicksLimit:8},grid:{display:false}},y:{ticks:{font:{size:10},color:'#8794a8',callback:v=>Math.floor(v)+'年'},grid:{color:'#eef2f7'}}}}});
 }
-$('#selCat').onchange=e=>{CAT=e.target.value;renderBulletin();};
-$('#selCountry').onchange=e=>{CO=e.target.value;renderBulletin();};
+function syncPd(){if($('#pdInput').value)runPdCheck();}
+$('#selCat').onchange=e=>{CAT=e.target.value;renderBulletin();syncPd();};
+$('#selCountry').onchange=e=>{CO=e.target.value;renderBulletin();syncPd();};
 renderBulletin();
 
-// ---- 优先日期对照器（只陈述事实，不预测）----
-$('#pdCheck').onclick=()=>{
+// ---- 优先日期对照器（只陈述事实，不预测；自动记忆优先日期）----
+function runPdCheck(){
   const v=$('#pdInput').value;const out=$('#pdResult');out.style.display='block';
   if(!v){out.innerHTML='<span style="color:var(--danger)">请先选择你的优先日期。</span>';return;}
+  localStorage.setItem('eb3_pd',v);
   const cur=curRow(),pd=new Date(v);
   const ok=(d)=>isC(d)||pd<new Date(d);
   const line=(d,label,act)=>`<div style="padding:8px 0;border-bottom:1px solid var(--bd)"><b>${label}</b>（${isC(d)?'当前 C':'截止 '+fmtD(d)}）：${ok(d)?'<span class="move-up">符合 ✓</span> '+act:'<span class="move-dn">未到</span> — 你的优先日期晚于截止日，需继续等待'}</div>`;
-  out.innerHTML=`<div style="font-size:14px;margin-bottom:4px;color:var(--tx2)">对照 ${cur.month.replace('-','年')}月 · ${CAT_LABEL[CAT]} · ${CO_LABEL[CO]}：</div>
+  out.innerHTML=`<div style="font-size:14px;margin-bottom:4px;color:var(--tx2)">对照 ${cur.month.replace('-','年')}月 · ${CAT_LABEL[CAT]} · ${CO_LABEL[CO]}（已记住你的优先日期，下次自动对照）：</div>
   ${line(cur.dff,'排期表B（递交）','→ 按本月公布，符合「递交」门槛')}
   ${line(cur.fad,'排期表A（批准）','→ 按本月公布，符合「最终裁定」门槛')}
   <div class="disc" style="margin-top:10px">⚠️ 这只是把你的日期和<b>所选类别/地区的本月官方数字</b>做机械对照。当月实际能否递交，<b>还要看 USCIS 公告该月使用表A还是表B</b>。本工具<b>不预测你将来何时排到</b>，也不构成法律建议。</div>`;
+}
+$('#pdCheck').onclick=runPdCheck;
+const savedPd=localStorage.getItem('eb3_pd');
+if(savedPd){$('#pdInput').value=savedPd;runPdCheck();}
+
+// ---- EB-3 主类 vs 非技术 差距图（中国大陆 · 表A）----
+(function(){
+  const toDecG=d=>{if(d==='C'){return 2027;}const t=new Date(d);return t.getFullYear()+t.getMonth()/12+t.getDate()/365;};
+  const main=VB_DATA.EB3.China, ow=VB_DATA.EB3_OW.China;
+  new Chart($('#gapChart'),{type:'line',data:{labels:main.map(b=>b.month),datasets:[
+    {label:'EB-3 主类',data:main.map(b=>toDecG(b.fad)),borderColor:'#1d3a6e',borderWidth:2,tension:.2,pointRadius:0},
+    {label:'EB-3 非技术',data:ow.map(b=>toDecG(b.fad)),borderColor:'#a8331f',borderWidth:2,tension:.2,pointRadius:0}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11},color:'#51607a'}},tooltip:{callbacks:{label:c=>(c.datasetIndex===0?'主类: '+fmtD(main[c.dataIndex].fad):'非技术: '+fmtD(ow[c.dataIndex].fad))}}},scales:{x:{ticks:{font:{size:10},color:'#8794a8',maxTicksLimit:8},grid:{display:false}},y:{ticks:{font:{size:10},color:'#8794a8',callback:v=>Math.floor(v)+'年'},grid:{color:'#eef2f7'}}}}});
+  const mc=main[main.length-1].fad, oc=ow[ow.length-1].fad;
+  if(mc!=='C'&&oc!=='C'){const yrs=((new Date(mc)-new Date(oc))/(365*864e5)).toFixed(1);$('#gapNote').innerHTML=`📌 当前（${VB_META.latest.replace('-','年')}月）：中国大陆 EB-3 <b>非技术</b>表A为 ${fmtD(oc)}，比 <b>主类</b>（${fmtD(mc)}）<b>落后约 ${yrs} 年</b>。`;}
+})();
+
+// ---- 本月速览图（可分享）----
+$('#genCard').onclick=async()=>{
+  const ec=VB_DATA.EB3.China[VB_DATA.EB3.China.length-1], ow=VB_DATA.EB3_OW.China[VB_DATA.EB3_OW.China.length-1], ein=VB_DATA.EB3.India[VB_DATA.EB3.India.length-1];
+  const row=(t,v)=>`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:15px"><span style="opacity:.85">${t}</span><b>${fmtD(v)}</b></div>`;
+  const card=document.createElement('div');
+  card.style.cssText='width:380px;padding:24px;background:linear-gradient(160deg,#1d3a6e,#2c5594);color:#fff;border-radius:16px;font-family:-apple-system,sans-serif';
+  card.innerHTML=`<div style="font-size:13px;opacity:.8;letter-spacing:.05em">EB-3 排期速览 · ${VB_META.latest.replace('-','年')}月</div>
+    <div style="font-size:20px;font-weight:700;margin:6px 0 14px">中国大陆 · 表A（最终裁定日）</div>
+    ${row('EB-3 主类',ec.fad)}${row('EB-3 非技术',ow.fad)}${row('印度 · EB-3 主类',ein.fad)}
+    <div style="font-size:11px;opacity:.7;margin-top:14px;line-height:1.5">数据来源：美国国务院 Visa Bulletin · 仅信息科普，不构成法律建议<br>benjaminjason.github.io/eb3-tracker</div>`;
+  const wrap=$('#cardWrap');wrap.innerHTML='';wrap.appendChild(card);
+  try{
+    const cv=await html2canvas(card,{scale:2,backgroundColor:null});
+    const a=document.createElement('a');a.download=`EB3速览-${VB_META.latest}.png`;a.href=cv.toDataURL('image/png');a.click();
+  }catch(e){wrap.innerHTML+='<div style="font-size:12px;color:var(--danger);margin-top:6px">出图失败，可直接截图上方卡片。</div>';}
 };
 
 // ===== 资讯（由官方排期数据自动生成，数据一更新资讯就刷新）=====
