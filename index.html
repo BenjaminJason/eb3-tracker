@@ -224,6 +224,8 @@ footer{border-top:1px solid var(--bd);background:var(--surface);padding:20px 0;m
     <h2>本月解读</h2>
     <div class="read" id="reading"></div>
     <div id="avgSpeed" style="font-size:13px;color:var(--tx2);background:var(--surface);border:1px solid var(--bd);border-radius:8px;padding:11px 14px;margin-top:10px"></div>
+    <div id="histReview" style="font-size:13px;color:var(--tx2);background:var(--surface);border:1px solid var(--bd);border-radius:8px;padding:11px 14px;margin-top:8px"></div>
+    <div id="snapshot" style="font-size:13px;color:var(--tx2);margin-top:8px"></div>
 
     <h2>排期走势（Final Action Date）</h2>
     <div class="cw"><canvas id="trend" role="img" aria-label="EB-3 中国大陆排期走势"></canvas></div>
@@ -584,6 +586,20 @@ function renderBulletin(){
   const stagHtml=stag>=2?`<div style="margin-top:8px;color:var(--danger)">⏸ <b>停滞提示：</b>本列「表A」已<b>连续 ${stag} 个月未前进</b>（持平或倒退）。这是对历史事实的描述，不预测后续。</div>`:'';
   $('#avgSpeed').innerHTML=(avg==null?'本区间含「当前(C)」状态，不适用平均速度统计。':`📈 <b>历史平均速度：</b>过去 ${cnt} 个月，本列「表A」平均每月${avg>=0?'前进':'后退'} <b>${Math.abs(avg)} 天</b>。<span style="color:var(--tx3)">（这是<b>历史平均</b>，<b>不预测未来、不针对任何个案</b>；排期随时可能停滞或倒退。）</span>`)+stagHtml;
 
+  // #8 历史回顾：与 6 / 12 个月前对比（纯事实）
+  function lookback(n){
+    if(series.length<=n)return null;
+    const a=series[series.length-1].fad,b=series[series.length-1-n].fad;
+    if(isC(a)||isC(b))return {txt:'区间含「当前(C)」，不便量化'};
+    const d=dayspan(a,b);const yrs=(Math.abs(d)/365).toFixed(1);
+    return {txt:`${d>=0?'前进':'后退'} <b>${Math.abs(d)} 天</b>（约 ${yrs} 年）`,from:fmtD(b),to:fmtD(a)};
+  }
+  const h6=lookback(6),h12=lookback(12);
+  $('#histReview').innerHTML=`🕰️ <b>历史回顾（${CAT_LABEL[CAT]} · ${CO_LABEL[CO]} 表A）：</b>`+
+    (h6?`<br>· 近 6 个月：${h6.txt}${h6.from?`（${h6.from} → ${h6.to}）`:''}`:'')+
+    (h12?`<br>· 近 12 个月：${h12.txt}${h12.from?`（${h12.from} → ${h12.to}）`:''}`:'')+
+    `<span style="color:var(--tx3);display:block;margin-top:4px">仅为历史事实回顾，不预测未来。</span>`;
+
   // #1 地区对比图（当前类别下 中国/印度/其它地区 的表A）
   $('#cmpCat').textContent=CAT_LABEL[CAT];
   const regions=[['China','中国','#a8331f'],['India','印度','#1d3a6e'],['ROW','其它地区','#1d7a52']];
@@ -640,6 +656,13 @@ $('#genCard').onclick=async()=>{
     const cv=await html2canvas(card,{scale:2,backgroundColor:null});
     const a=document.createElement('a');a.download=`EB3速览-${VB_META.latest}.png`;a.href=cv.toDataURL('image/png');a.click();
   }catch(e){wrap.innerHTML+='<div style="font-size:12px;color:var(--danger);margin-top:6px">出图失败，可直接截图上方卡片。</div>';}
+  // #7 分享文案（可复制）
+  const cap=`📊 ${VB_META.latest.replace('-','年')}月美国 EB-3 排期速览（中国大陆·表A）\nEB-3 主类：${fmtD(ec.fad)}\nEB-3 非技术：${fmtD(ow.fad)}\n非技术比主类落后好几年，走这条路要有耐心⏳\n数据来自美国国务院 Visa Bulletin，仅科普非建议。\n#EB3 #美国移民 #排期 #职业移民`;
+  const capBox=document.createElement('div');
+  capBox.style.cssText='margin-top:12px;background:var(--surface);border:1px solid var(--bd);border-radius:8px;padding:12px';
+  capBox.innerHTML=`<div style="font-size:13px;font-weight:600;margin-bottom:6px">📝 建议配文（点复制）</div><div style="font-size:13px;white-space:pre-wrap;color:var(--tx2)" id="capText">${cap}</div><button id="copyCap" style="margin-top:8px;background:transparent;border:1px solid var(--bd2);color:var(--tx2);border-radius:7px;padding:6px 14px;font-size:13px;cursor:pointer">复制文案</button>`;
+  wrap.appendChild(capBox);
+  $('#copyCap').onclick=function(){navigator.clipboard&&navigator.clipboard.writeText(cap);this.textContent='已复制 ✓';};
 };
 
 // ===== 资讯（由官方排期数据自动生成，数据一更新资讯就刷新）=====
