@@ -505,24 +505,24 @@ $('#glossSearch').oninput=e=>renderGloss(e.target.value);
 // ===== 官方资源 =====
 const RES=[
   ['排期与签证',[
-    ['美国国务院 Visa Bulletin（排期原文）','https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html'],
-    ['订阅 Visa Bulletin 更新通知','https://travel.state.gov/content/travel/en/News/visas-news.html'],
+    ['美国国务院 Visa Bulletin（排期原文）','https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html','每月发布，含各职业类别(EB-1~EB-5)、各出生国的两张表：表A「最终裁定日」与表B「递交日」。','一般每月中旬发布<b>次月</b>排期；优先日期早于截止日才轮到你。'],
+    ['订阅 Visa Bulletin 更新通知','https://travel.state.gov/content/travel/en/News/visas-news.html','国务院签证新闻订阅页，登记邮箱即可在新一期发布时收到通知。','也可订阅本站 RSS（见「资讯」页），每月自动推送中国/印度排期变化。'],
   ]],
   ['移民局 (USCIS)',[
-    ['USCIS 官网','https://www.uscis.gov'],
-    ['USCIS 案件处理时间查询','https://egov.uscis.gov/processing-times/'],
-    ['在线查案件状态','https://egov.uscis.gov/casestatus/'],
-    ['EB-3 职业移民说明','https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-third-preference-eb-3'],
+    ['USCIS 官网','https://www.uscis.gov','移民局主站：各类移民表格下载、官方政策与办理指南。',''],
+    ['案件处理时间查询','https://egov.uscis.gov/processing-times/','选择表格类型(如 I-140 / I-485)和受理中心，查当前<b>平均处理时间</b>。','官方处理时间随月波动，本站流程页的耗时区间仅供参考、以此为准。'],
+    ['在线查案件状态','https://egov.uscis.gov/casestatus/','输入 13 位<b>收据号(Receipt Number)</b>查案件进度。','收据号常形如 IOE / EAC / WAC / LIN + 数字，在移民局收据信(I-797)上。'],
+    ['EB-3 职业移民说明','https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-third-preference-eb-3','官方对 EB-3 三类的要求：技术工人(≥2年经验)、专业人员(本科)、其他工人(非技术)。','「其他工人 / Other Workers」即非技术类，名额更少、排期通常更慢。'],
   ]],
   ['劳工部 (DOL / PERM)',[
-    ['FLAG 系统（PERM 申请）','https://flag.dol.gov'],
-    ['PERM 处理时间','https://flag.dol.gov/processingtimes'],
+    ['FLAG 系统（PERM / PWD 申请）','https://flag.dol.gov','雇主提交现行工资认定(PWD)和劳工证(PERM, 表 ETA-9089)的官方系统。',''],
+    ['PERM / PWD 处理时间','https://flag.dol.gov/processingtimes','劳工部公布各阶段当前处理时间：现行工资认定、PERM 审理、审计(audit)等。','这些时间近年波动较大，是 PERM 阶段总耗时的主要变量。'],
   ]],
   ['如何自行查证持牌律师（中立目录，本站不推荐具体律师）',[
-    ['AILA 美国移民律师协会「找律师」目录','https://www.ailalawyer.com'],
+    ['AILA 美国移民律师协会「找律师」目录','https://www.ailalawyer.com','美国移民律师协会官方目录，可按地区/语言/专长查找<b>持牌</b>移民律师。','本站只提供中立官方目录，<b>不推荐任何具体律师或机构</b>，请自行核实资质。'],
   ]],
 ];
-$('#resList').innerHTML=RES.map(g=>`<div style="margin-top:18px"><div style="font-weight:600;font-size:15px;margin-bottom:8px">${g[0]}</div>${g[1].map(l=>`<a href="${l[1]}" target="_blank" rel="noopener" style="display:block;padding:11px 14px;background:var(--card);border:1px solid var(--bd);border-radius:8px;margin-bottom:7px;font-size:14px">${l[0]} ↗</a>`).join('')}</div>`).join('');
+$('#resList').innerHTML=RES.map(g=>`<div style="margin-top:20px"><div style="font-weight:600;font-size:15px;margin-bottom:8px">${g[0]}</div>${g[1].map(l=>`<div class="card" style="padding:13px 15px;margin-bottom:9px"><a href="${l[1]}" target="_blank" rel="noopener" style="font-weight:600;font-size:14.5px">${l[0]} ↗</a><div style="font-size:13px;color:var(--tx2);margin-top:5px;line-height:1.6">${l[2]}</div>${l[3]?`<div style="font-size:12.5px;color:var(--navy2);background:var(--surface2);border-radius:6px;padding:6px 10px;margin-top:7px;line-height:1.55">💡 ${l[3]}</div>`:''}</div>`).join('')}</div>`).join('');
 
 // ===== 更新日志 + 核对信息 =====
 $('#aboutLatest').textContent=VB_META.latest;
