@@ -1,0 +1,33 @@
+name: Telegram 通知
+
+# 有人提 issue / PR / 评论 / discussion 时，推送到你的 Telegram
+on:
+  issues:
+    types: [opened, reopened]
+  pull_request_target:
+    types: [opened, reopened]
+  issue_comment:
+    types: [created]
+  discussion:
+    types: [created]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram message
+        env:
+          TG_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT_ID }}
+        run: |
+          if [ -z "$TG_TOKEN" ] || [ -z "$TG_CHAT" ]; then
+            echo "未配置 TG_BOT_TOKEN / TG_CHAT_ID secrets，跳过。"; exit 0
+          fi
+          TITLE="${{ github.event.issue.title || github.event.pull_request.title || github.event.discussion.title || github.event.comment.html_url }}"
+          URL="${{ github.event.issue.html_url || github.event.pull_request.html_url || github.event.discussion.html_url || github.event.comment.html_url }}"
+          TEXT=$(printf '🔔 %s · %s\n👤 %s\n📌 %s\n%s' "${{ github.repository }}" "${{ github.event_name }}" "${{ github.actor }}" "$TITLE" "$URL")
+          curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TG_CHAT}" \
+            --data-urlencode "text=${TEXT}" \
+            --data-urlencode "disable_web_page_preview=true" > /dev/null
+          echo "已发送 Telegram 通知。"

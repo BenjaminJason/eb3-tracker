@@ -10,6 +10,8 @@
 <meta property="og:description" content="职业移民流程、材料注意事项与官方排期数据趋势。仅信息科普，不构成法律建议，不推荐任何中介或律师。">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
+<!-- 访问统计（隐私友好）：去 goatcounter.com 免费注册后，把 YOURCODE 换成你的站点代码即可启用 -->
+<script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#1d3a6e">
 <meta name="apple-mobile-web-app-title" content="EB-3 追踪">
@@ -140,6 +142,11 @@ footer{border-top:1px solid var(--bd);background:var(--surface);padding:20px 0;m
 </div></header>
 
 <main class="wrap">
+  <div style="position:relative;margin:14px 0 4px">
+    <input id="siteSearch" placeholder="🔍 站内搜索：术语 / 流程 / 材料 / 官方资源…" style="width:100%;padding:10px 13px;border:1px solid var(--bd2);border-radius:8px;font-size:14px;font-family:inherit;background:var(--card);color:var(--tx)">
+    <div id="searchResults" style="display:none;position:absolute;left:0;right:0;top:46px;background:var(--card);border:1px solid var(--bd2);border-radius:8px;z-index:20;max-height:340px;overflow:auto;box-shadow:0 8px 24px rgba(0,0,0,.12)"></div>
+  </div>
+
 
   <section class="page on" id="home">
     <h1>EB-3 职业移民 · 流程与排期科普</h1>
@@ -779,6 +786,28 @@ async function sendChat(){
 }
 $('#chatSend').onclick=sendChat;
 $('#chatIn').addEventListener('keydown',e=>{if(e.key==='Enter')sendChat();});
+
+// ===== 站内搜索 =====
+const SIDX=[];
+const strip=s=>(s||'').replace(/<[^>]+>/g,'');
+try{
+  GLOSS.forEach(g=>SIDX.push({t:g[0],d:strip(g[1]),p:'glossary',pl:'术语词典'}));
+  FAQ.forEach(f=>SIDX.push({t:f[0],d:strip(f[1]),p:'home',pl:'常见问题'}));
+  CONCEPTS.forEach(c=>SIDX.push({t:c[0],d:strip(c[1]),p:'home',pl:'核心概念'}));
+  STAGES.forEach(s=>SIDX.push({t:s.t,d:strip(s.summary),p:'home',pl:'办理流程'}));
+  NOTES.forEach(n=>SIDX.push({t:strip(n[0]),d:strip(n[1]),p:'home',pl:'材料注意'}));
+  RES.forEach(g=>g[1].forEach(l=>SIDX.push({t:l[0],d:strip(l[2]),p:'resources',pl:'官方资源'})));
+}catch(e){}
+function goPage(p){const b=document.querySelector(`nav button[data-p="${p}"]`);if(b)b.click();}
+window._go=p=>{goPage(p);$('#searchResults').style.display='none';$('#siteSearch').value='';window.scrollTo(0,0);};
+$('#siteSearch').oninput=function(){
+  const q=this.value.trim().toLowerCase();const box=$('#searchResults');
+  if(q.length<1){box.style.display='none';return;}
+  const hits=SIDX.filter(x=>x.t.toLowerCase().includes(q)||x.d.toLowerCase().includes(q)).slice(0,10);
+  box.style.display='block';
+  box.innerHTML=hits.length?hits.map(h=>`<div onclick="_go('${h.p}')" style="padding:10px 13px;border-bottom:1px solid var(--bd);cursor:pointer"><div style="font-size:14px;font-weight:600">${h.t} <span style="font-size:11px;color:var(--tx3);font-weight:400">· ${h.pl}</span></div><div style="font-size:12.5px;color:var(--tx2);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${h.d}</div></div>`).join(''):`<div style="padding:14px;color:var(--tx3);font-size:13px">没有匹配，换个关键词试试。</div>`;
+};
+document.addEventListener('click',e=>{if(!e.target.closest('#siteSearch')&&!e.target.closest('#searchResults'))$('#searchResults').style.display='none';});
 </script>
 </body>
 </html>
